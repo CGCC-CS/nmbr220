@@ -19,7 +19,7 @@ class Currency
     *_dollar = dollar;
     *_cents = cents;
   }
-  Currency(const Currency &original)
+  Currency(const Currency &original)//copy constructor
   {
     _dollar = new int;
     _cents = new int;
