@@ -33,11 +33,3 @@ class OrderedPair{
 
     friend ostream& operator<< <T>(ostream &strm, const OrderedPair<T> &p);
 };
-
-// Friend methods
-template <class T>
-ostream& operator<<(ostream &strm, const OrderedPair<T> &p) {
-    strm << "(" << p.X << "," << p.Y << ")";
-    return strm;
-}
-
