@@ -2,6 +2,10 @@
 #include<cmath>
 #include"decibel.h"
 
+//Ian Cleary
+//CSC 220 Summer 2015
+//Project 2: Decibel Class
+
 using namespace std;
 
 Decibel::Decibel( ) {
