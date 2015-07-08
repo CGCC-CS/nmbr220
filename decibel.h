@@ -1,6 +1,10 @@
 #include<iostream>
 #include<cmath>
 
+//Ian Cleary
+//CSC 220 Summer 2015
+//Project 2: Decibel Class
+
 using namespace std;
 
 class Decibel {
