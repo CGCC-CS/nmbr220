@@ -1,4 +1,7 @@
 #include <stdexcept>
+#include <iostream>
+
+#include "numberbase.h"
 
 template<typename T>
 class Matrix
@@ -19,6 +22,9 @@ class Matrix
         
         unsigned int numCols() const;
         unsigned int numRows() const;
+        
+        virtual void print();
+        virtual void demo();
         
         // convert element type
         template<typename U>
@@ -114,6 +120,25 @@ unsigned int Matrix<T>::numRows() const
 {
     return rows;
 }
+
+
+template<typename T>
+void Matrix<T>::print()
+{
+    for(unsigned int i = 0; i < rows; ++i)
+    {
+        for(unsigned int j = 0; j < cols; ++j)
+        {
+            std::cout << this->operator()(j, i) << '\t';
+        }
+        
+        std::cout << '\n';
+    }
+}
+
+template<typename T>
+void Matrix<T>::demo()
+{}
 
 template<typename T>
 template<typename U>
