@@ -1,5 +1,6 @@
 // Ordered pair class to represent (X,Y)
 #include<iostream>
+#include"numberbase.h"
 
 using namespace std;
 
@@ -9,7 +10,7 @@ template <class T>
 ostream& operator<<(ostream &strm, const OrderedPair<T> &p);
 
 template <class T>
-class OrderedPair{
+class OrderedPair : public NumberBase {
 
   private:
     T X;
