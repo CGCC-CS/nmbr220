@@ -72,6 +72,10 @@ Decibel& Decibel::operator=(const Decibel &that) {
 	return *this;
 }
 
+//pure virtual functions from numberbase.h
+    void print(void) {}
+    void demo(void) {}
+
 #ifdef DEBUG_IAC
 int main() {
 	float dB1 = 3.0;
