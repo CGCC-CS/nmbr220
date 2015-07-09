@@ -55,9 +55,9 @@ int main(int argc, char** argv)
 template<typename T>
 void fillMatrix(Matrix<T>& m)
 {
-    for(int i = 0; i < m.numRows(); ++i)
+    for(unsigned int i = 0; i < m.numRows(); ++i)
     {
-        for(int j = 0; j < m.numCols(); ++j)
+        for(unsigned int j = 0; j < m.numCols(); ++j)
         {
             m(j, i) = std::rand() % 10;
         }
