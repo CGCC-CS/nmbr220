@@ -9,9 +9,6 @@
 template<typename T>
 void fillMatrix(Matrix<T>& m);
 
-template<typename T>
-void printMatrix(const Matrix<T>& m);
-
 int main(int argc, char** argv)
 {
     std::srand(std::time(0));
@@ -23,10 +20,10 @@ int main(int argc, char** argv)
     fillMatrix(m2);
     
     std::cout << "matrix 1:\n";
-    printMatrix(m1);
+    m1.print();
     
     std::cout << "matrix 2:\n";
-    printMatrix(m2);
+    m2.print();
     
     Matrix<int> mAdd = m1 + m2;
     Matrix<int> mSub = m1 - m2;
@@ -35,19 +32,19 @@ int main(int argc, char** argv)
     Matrix<int> mScale2 = m2 * 3;
     
     std::cout << "\nmatrix add:\n";
-    printMatrix(mAdd);
+    mAdd.print();
     
     std::cout << "matrix sub:\n";
-    printMatrix(mSub);
+    mSub.print();
     
     std::cout << "matrix mult:\n";
-    printMatrix(mMult);
+    mMult.print();
     
     std::cout << "matrix scale 1:\n";
-    printMatrix(mScale1);
+    mScale1.print();
     
     std::cout << "matrix scale 2:\n";
-    printMatrix(mScale2);
+    mScale2.print();
     
     return 0;
 }
@@ -55,26 +52,12 @@ int main(int argc, char** argv)
 template<typename T>
 void fillMatrix(Matrix<T>& m)
 {
-    for(int i = 0; i < m.numRows(); ++i)
-    {
-        for(int j = 0; j < m.numCols(); ++j)
-        {
-            m(j, i) = std::rand() % 10;
-        }
-    }
-}
-
-template<typename T>
-void printMatrix(const Matrix<T>& m)
-{
     for(unsigned int i = 0; i < m.numRows(); ++i)
     {
         for(unsigned int j = 0; j < m.numCols(); ++j)
         {
-            std::cout << m(j, i) << '\t';
+            m(j, i) = std::rand() % 10;
         }
-        
-        std::cout << '\n';
     }
 }
 

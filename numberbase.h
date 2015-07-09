@@ -1,7 +1,8 @@
-
+#ifndef _NUMBERBASE_
+#define _NUMBERBASE_
 class NumberBase {
-   virtual NumberBase operator+(NumberBase &addend) {
-     NumberBase n;
-     return n;
-    }
+   public:
+       virtual void print(void) = 0;
+       virtual void demo(void) = 0;
 };
+#endif
