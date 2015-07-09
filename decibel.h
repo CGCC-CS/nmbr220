@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Decibel : public numberbase{
+class Decibel : public NumberBase {
   private:
     double* num;
     float* dB;
@@ -19,7 +19,6 @@ class Decibel : public numberbase{
    Decibel();
    Decibel(double x);
    Decibel(float y);
-   void print();
    Decibel(const Decibel& original);
    ~Decibel();
 

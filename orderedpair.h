@@ -89,8 +89,8 @@ OrderedPair<T> OrderedPair<T>::operator+(OrderedPair<T> addend) {
   return res;
 }
 
-
-void demo(void) {
+template <class T>
+void OrderedPair<T>::demo(void) {
   OrderedPair<int> m(3,4);
   OrderedPair<int> n;
   OrderedPair<int> a;

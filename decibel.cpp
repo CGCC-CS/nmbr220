@@ -26,10 +26,6 @@ Decibel::Decibel(float y) {
    *dB = y;
    *num = pow(y/10.0, 10);
  }
-void Decibel::print() {
-   cout << "   num= " << *num << " ("<< num <<")" << endl;
-   cout << "   dB= " << *dB << " ("<< dB <<")" << endl;
-   }
 
 Decibel::Decibel(const Decibel& original) {
    *num = original.getNum();
@@ -73,8 +69,12 @@ Decibel& Decibel::operator=(const Decibel &that) {
 }
 
 //pure virtual functions from numberbase.h
-    void print(void) {}
-    void demo(void) {}
+void Decibel::print() {
+   cout << "   num= " << *num << " ("<< num <<")" << endl;
+   cout << "   dB= " << *dB << " ("<< dB <<")" << endl;
+   }
+
+void Decibel::demo(void) {}
 
 #ifdef DEBUG_IAC
 int main() {
