@@ -1,16 +1,20 @@
 // Project 2 Main Program
 
 #include<iostream>
+#include "numberbase.h"
 #include"orderedpair.h"
 using namespace std;
 
+#define COUNT 1
+
 int main () {
-  OrderedPair<T> op(3,4);
+  OrderedPair<int> op(3,4);
+  NumberBase *nums[COUNT];
 
-  cout << "Hello, World!" << endl;
-
-  cout << "M: ";
-  m.printOrderedPair();
+  nums[0] = & op;
+ 
+  for (int ii=0;ii<COUNT;ii++)
+    nums[ii]->print();
 
   return 0;
 
