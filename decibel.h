@@ -30,6 +30,10 @@ class Decibel : public NumberBase {
     
     //Operator overload
     Decibel& operator=(const Decibel &that);
+    Decibel& operator+(const Decibel &that);
+    Decibel& operator-(const Decibel &that);
+    Decibel& operator*(const Decibel &that);
+    Decibel& operator<<(const Decibel &that);
     
     //pure virtual functions from numberbase.h
     void print(void);
