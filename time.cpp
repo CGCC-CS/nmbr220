@@ -12,7 +12,7 @@ class Time
 {
    public:
       int getTime(int h, int m, int ap);
-      void display();
+      void display(int h, int m, int ap);
       Time( int h, int m, int ap);                                // primary constructor
       Time( const Time &t1, const Time &t2, const Time &t_am);     // copy constructor
       ~Time();                                    // destructor
@@ -76,7 +76,7 @@ int main( )
 {
 
   Time * time = (12,30,0);
-  time->display();
+  time->display(12,30,0);
 
   return 0;
 
