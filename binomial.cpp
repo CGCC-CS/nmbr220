@@ -1,4 +1,4 @@
-#include"declarations.h"
+#include"binomial.h"
 
 Binomial::Binomial(int c, int x , int x_2)
 {
