@@ -95,6 +95,7 @@ void OrderedPair<T>::demo(void) {
 
 #ifdef DEBUG
 int main () {
+  cout << "TESTING ORDERED PAIR" << endl;
   OrderedPair<int> o(3,4);
   o.demo();
   return 0;
