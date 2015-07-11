@@ -62,26 +62,21 @@ Time::getTime(const int h,const int m, const int ap)
   return *h_t;
   return *m_t;
   return *ap_t;
-  cout << "Hour: " << *h_t << endl;
-  cout << "Minutes: " << *m_t << endl;
-  cout << "AM/PM: " << *ap_t << endl;
-}
+ }
 
-//void Time::display()
-//{
-//  cout << "Hour: " << t1.getTime() << endl;
-//  cout << "Minutes: " << t2.getTime() << endl;
-// cout << "AM/PM: " << t3.getTime() << endl;
-//}
+void Time::display()
+{
+  cout << "Hour: " << t1.getTime() << endl;
+  cout << "Minutes: " << t2.getTime() << endl;
+  cout << "AM/PM: " << t3.getTime() << endl;
+}
 
 // Main function for the program
 int main( )
 {
 
   Time * time = (12,30,0);
-  getTime();
-
-//time->display();
+  time->display();
 
   return 0;
 
