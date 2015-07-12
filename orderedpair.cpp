@@ -15,25 +15,19 @@ ostream& operator<<(ostream &strm, const OrderedPair<T> &p) {
 }
 
 template <class T>
-void OrderedPair<T>::printOrderedPair(){
-  cout << "(" << X << "," << Y << ")" << endl;
-}
-
-// Adds addend to this OrderedPair
-template <class T>
-OrderedPair<T> OrderedPair<T>::add(OrderedPair<T> addend) {
-
+OrderedPair<T> operator* (int n, const OrderedPair<T> &p) {
   OrderedPair<T> res;
-  T x, y;
-
-  // "this" is a pointer to the object, so the next to lines adds
-  //    the paramter object to the calling object
-  x = this->getX() + addend.getX();
-  y = this->getY() + addend.getY();
+  T x = p.getX() * n;
+  T y = p.getY() * n;
   res.setX(x);
   res.setY(y);
 
   return res;
+}
+
+template <class T>
+void OrderedPair<T>::printOrderedPair(){
+  cout << "(" << X << "," << Y << ")" << endl;
 }
 
 // Accessors & Mutators  
@@ -60,36 +54,32 @@ OrderedPair<T> OrderedPair<T>::operator+(OrderedPair<T> addend) {
 }
 
 template <class T>
+OrderedPair<T> OrderedPair<T>::operator*(int n) {
+  OrderedPair<T> res;
+  T x = this->getX() * n;
+  T y = this->getY() * n;
+  res.setX(x);
+  res.setY(y);
+
+  return res;
+}
+
+template <class T>
 void OrderedPair<T>::demo(void) {
   OrderedPair<int> m(3,4);
   OrderedPair<int> n;
-  OrderedPair<int> a;
-  OrderedPair<int> & r = m;   // Reference variable
 
   /* Display the Ordered Pairs */
-  cout << "M: ";
-  m.printOrderedPair();
-  cout << "N: ";
-  n.printOrderedPair();
+  cout << "Ordered pairs:" << endl;
+  cout << "  M: " << m << endl;
+  cout << "  N: " << n << endl;
   cout << endl;
 
   // Add m & n
-  a = m.add(n);
-  cout << "X: ";
-  a.printOrderedPair();
-
-  // Using a reference
-  cout << endl << "R: ";
-  r.printOrderedPair();
-  m.printOrderedPair();
-  r.setX(10);
-  cout << "R: ";
-  r.printOrderedPair();
-  cout << "M: " << m;
-
-  m = m + n;
-  cout << "M: " << m << endl;
-  cout << "Operator + overloaded m + r " << m + n << endl;
+  cout << "Overloaded operators: " << endl;
+  cout << " M + N = " << m + n << endl;
+  cout << " M * 2 = " << m * 2 << endl;
+  cout << " 2 * N = " << 2 * n << endl;
 }
 
 
