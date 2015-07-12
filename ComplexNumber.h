@@ -52,6 +52,7 @@ class ComplexNumber
         ComplexNumber operator*(const ComplexNumber &that);
         ComplexNumber operator/(const ComplexNumber &that);
         
+        //friend ComplexNumber operator<<(const ComplexNumber &that);
         ComplexNumber operator*(float f);
 		
         void myPrint();
