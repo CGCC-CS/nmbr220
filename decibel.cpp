@@ -72,20 +72,32 @@ Decibel& Decibel::operator=(const Decibel &that) {
 }
 
 Decibel& Decibel::operator+(const Decibel &that) {
+	double ret_dB = this->dB + that.dB;
+	Decibel ret(ret_dB);
 	return *this;
 }
 
 Decibel& Decibel::operator-(const Decibel &that) {
+	double ret_dB = this->dB - that.dB;
+	Decibel ret(ret_dB);
 	return *this;
 }
 
 Decibel& Decibel::operator*(const Decibel &that) {
+	double ret_dB = this->dB + that.dB;
+	Decibel ret(ret_dB);
 	return *this;
 }
 
-Decibel& Decibel::operator<<(const Decibel &that) {
+ostream& Decibel::operator<<(const Decibel &that) {
+	
 	return *this;
 }
+ostream& operator<< (ostream &strm, const MyClass &m) {
+  strm << m.print();
+  return strm;
+}
+
 //pure virtual functions from numberbase.h
 void Decibel::print() {
    cout << "   num= " << *num << " ("<< num <<")" << endl;
@@ -94,6 +106,7 @@ void Decibel::print() {
 
 void Decibel::demo(void) {
    cout << "\n\n-------------------< Starting Decibel Demo >-------------------\n\n";
+   cout << "\n\n-------------------<       Ian Cleary      >-------------------\n\n";
    float dB1 = 3.0;
 	double num1 = 10.0;
 	Decibel d1(dB1);
@@ -104,12 +117,24 @@ void Decibel::demo(void) {
  	 	
  	Decibel *d3 = new Decibel;
  	*d3 = d2;
+ 	cout << "Printing d3 (copied from d2; d3 is dynamically alocated):\n"; d3->print();
  	
- 	cout << "Printing d3:\n"; d3->print();
- 	 	
+ 	Decibel d4;
+ 	d4 = d2+d3;
+ 	cout << "Printing d4 (d4 = d2 + d3):\n"; d4.print();
+ 	
+ 	Decibel d5;
+ 	d5 = d2-d3;
+ 	cout << "Printing d5 (d5 = d2 - d3):\n"; d5.print();
+ 	
+ 	Decibel d6;
+ 	d6 = d1*d3;
+ 	cout << "Printing d6 (d4 = d1 * d3):\n"; d6.print();
+ 	
+ 		
  	delete d3;
  	d3 = NULL;
- 	
+ 	cout << "\n\n-------------------< Ending Decibel Demo >-------------------\n\n";
   	return;
 
 }

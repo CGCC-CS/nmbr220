@@ -1,3 +1,4 @@
+# Makefile for CSC220 Project 2 Spring 2015
 CFLAGS = -ansi -pedantic -Wall
 CC = g++
 
@@ -18,5 +19,12 @@ decibel.o : decibel.cpp
 ComplexNumber.o : ComplexNumber.cpp
 	$(CC) $(CFLAGS) -c ComplexNumber.cpp
 
+# make demo_op
+#   Test orderedpair class
+demo_op : orderedpair.cpp
+	$(CC) $(CFLAGS) orderedpair.cpp -DDEBUG
+
+# make clean
+#  clean up working directory
 clean: 
 	rm -f *.out *.o *.h~ *.cpp~ *.tmp

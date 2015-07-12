@@ -29,8 +29,8 @@ class OrderedPair : public NumberBase {
 
     void printOrderedPair();
     void print(void) { printOrderedPair();}
-    OrderedPair add (OrderedPair addend);
-    OrderedPair operator+(OrderedPair addend);
+    OrderedPair<T> operator+(OrderedPair<T> addend);
+    OrderedPair<T> operator*(int n);
 
     void demo(void);
     friend ostream& operator<< <T>(ostream &strm, const OrderedPair<T> &p);
