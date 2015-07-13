@@ -1,10 +1,12 @@
 #include <stdexcept>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 #include "numberbase.h"
 
 template<typename T>
-class Matrix
+class Matrix : public NumberBase
 {
     public:
         Matrix();
@@ -32,6 +34,7 @@ class Matrix
         
         static bool addOrSubCompatible(const Matrix<T>& lhs, const Matrix<T>& rhs);
         static bool multiplyCompatible(const Matrix<T>& lhs, const Matrix<T>& rhs);
+        static void fillMatrix(Matrix<T>& m);
         
     private:
         unsigned int cols;
@@ -60,6 +63,13 @@ Matrix<T>::Matrix(const Matrix& other)
     rows(0)
 {
     resize(other.cols, other.rows);
+    
+    for(unsigned int i = 0; i < cols * rows; ++i)
+    {
+        unsigned int iX = i % cols;
+        unsigned int iY = i / cols;
+        (*this)(iX, iY) = other(iX, iY);
+    }
 }
 
 template<typename T>
@@ -121,7 +131,6 @@ unsigned int Matrix<T>::numRows() const
     return rows;
 }
 
-
 template<typename T>
 void Matrix<T>::print()
 {
@@ -138,7 +147,42 @@ void Matrix<T>::print()
 
 template<typename T>
 void Matrix<T>::demo()
-{}
+{
+    std::srand(std::time(0));
+    
+    Matrix<int> m1(3, 3);
+    Matrix<int> m2(3, 3);
+    
+    fillMatrix(m1);
+    fillMatrix(m2);
+    
+    std::cout << "matrix 1:\n";
+    m1.print();
+    
+    std::cout << "matrix 2:\n";
+    m2.print();
+    
+    Matrix<int> mAdd = m1 + m2;
+    Matrix<int> mSub = m1 - m2;
+    Matrix<int> mMult = m1 * m2;
+    Matrix<int> mScale1 = 3 * m1;
+    Matrix<int> mScale2 = m2 * 3;
+    
+    std::cout << "\nmatrix add:\n";
+    mAdd.print();
+    
+    std::cout << "matrix sub:\n";
+    mSub.print();
+    
+    std::cout << "matrix mult:\n";
+    mMult.print();
+    
+    std::cout << "matrix scale 1:\n";
+    mScale1.print();
+    
+    std::cout << "matrix scale 2:\n";
+    mScale2.print();
+}
 
 template<typename T>
 template<typename U>
@@ -269,4 +313,16 @@ template<typename T>
 bool Matrix<T>::multiplyCompatible(const Matrix<T>& lhs, const Matrix<T>& rhs)
 {
     return lhs.numCols() == rhs.numRows();
+}
+
+template<typename T>
+void Matrix<T>::fillMatrix(Matrix<T>& m)
+{
+    for(unsigned int i = 0; i < m.numRows(); ++i)
+    {
+        for(unsigned int j = 0; j < m.numCols(); ++j)
+        {
+            m(j, i) = std::rand() % 10;
+        }
+    }
 }
