@@ -47,13 +47,13 @@ ComplexNumber ComplexNumber::operator/ (const ComplexNumber &cn)
 	return ret;
 }
 
-/*
-ComplexNumber ComplexNumber::operator<< (const ComplexNumber &cn) 
+
+std::ostream& operator<< (std::ostream &strm, const ComplexNumber &cn) 
 {
-  ret << "(" << cn.real << " & " << cn.imag << ")";
-  return ret;
+  strm << cn.getreal() << " + i" << cn.getimag();
+  return strm;
 }
-*/
+
 
 ComplexNumber ComplexNumber::operator*(float f)
 {
