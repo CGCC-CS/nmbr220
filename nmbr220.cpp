@@ -17,7 +17,7 @@ int main () {
   nums[0] = & op1;
   nums[1] = & op2;
   nums[2] = & d1;
- 
+
   for (int ii=0;ii<COUNT;ii++) {
     nums[ii]->print();
     //nums[ii]->demo();
