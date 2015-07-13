@@ -1,8 +1,7 @@
 #ifndef _COMPLEXNUMBER_
 #define _COMPLEXNUMBER_
 
-#include<iostream>
-//#include"numberbase.h"
+#include <iostream>
 
 /*
 Author: Gene Silva
@@ -52,7 +51,7 @@ class ComplexNumber
         ComplexNumber operator*(const ComplexNumber &that);
         ComplexNumber operator/(const ComplexNumber &that);
         
-        //friend ComplexNumber operator<<(const ComplexNumber &that);
+        friend std::ostream& operator<<(std::ostream &strm, const ComplexNumber &cn);
         ComplexNumber operator*(float f);
 		
         void myPrint();
