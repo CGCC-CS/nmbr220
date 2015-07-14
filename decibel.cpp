@@ -13,46 +13,31 @@ Decibel::Decibel( ) {
    //float dB;
    num = (double)1.0;
    dB = (float)0.0;
-   cout << "`````Default Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
+   //cout << "`````Default Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
  }
 Decibel::Decibel(double x) {
    //double num;
    //float dB;
    num = x;
    dB = (float)10*log10(x);
-   cout << "`````double Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
+   //cout << "`````double Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
  }
 Decibel::Decibel(float y) {
    //double num;
    //float dB;
    dB = y;
    num = (float)pow(10, y/10.0);
-   cout << "`````float Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
+   //cout << "`````float Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
  }
 
 Decibel::Decibel(const Decibel& original) {
    num = original.getNum();
    dB = original.getdB();
-   cout << "++COPY Constructor:" << endl;
-   cout << "   num= " << num << " ("<< &num <<")" << endl;
-	cout << "   dB= " << dB << " ("<< &dB <<")" << endl;
-	/*
-	 num = new double;
-   dB = new float;
-   *num = *(original.num);  // Why not a=original.a;
-   *dB = *(original.dB);  // Why not a=original.a;
-   cout << "++COPY Constructor:" << endl;
-   cout << "   num= " << *num << " ("<< num <<")" << endl;
-	cout << "   dB= " << *dB << " ("<< dB <<")" << endl;
-	*/
+   //cout << "++COPY Constructor:" << endl;
+   //cout << "   num= " << num << " ("<< &num <<")" << endl;
+	//cout << "   dB= " << dB << " ("<< &dB <<")" << endl;
   }
-Decibel::~Decibel() {
-    /*
-    cout << "--Destuctor:" << endl;
-    cout << "   num= " << num << " ("<< &num <<")" << endl;
-    cout << "   dB= " << dB << " ("<< &dB <<")" << endl;
-    */
-  }
+Decibel::~Decibel() { }
 
 
 
@@ -96,8 +81,8 @@ ostream& operator<< (ostream &strm, const Decibel &that) {
 
 //pure virtual functions from numberbase.h
 void Decibel::print() {
-   cout << "   num= " << num << " ("<< &num <<")" << endl;
-   cout << "   dB= " << dB << " ("<< &dB <<")" << endl;
+   cout << "   num= " << num << endl;//" ("<< &num <<")" << endl;
+   cout << "   dB= " << dB << endl; //" ("<< &dB <<")" << endl;
    }
 
 void Decibel::demo(void) {
@@ -126,7 +111,7 @@ void Decibel::demo(void) {
  	d6 = d1 * d3;
  	cout << "Printing d6 (d4 = d1 * d3):\n"; d6.print();
  	
- 	cout << "-------------------< Ending Decibel Demo >-------------------\n";
+ 	cout << "-------------------< Ending Decibel Demo >-------------------\n\n";
   	return;
 
 }
