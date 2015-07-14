@@ -31,6 +31,11 @@ int main () {
     nums[ii]->print();
     nums[ii]->demo();
   }
+
+  cout <<" Time for final grades!" << endl;
+  for (int ii=0;ii<COUNT;ii++) {
+    nums[ii]->grademe();
+  }
   return 0;
 
 }
