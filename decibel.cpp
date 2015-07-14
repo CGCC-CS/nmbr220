@@ -11,8 +11,8 @@ using namespace std;
 Decibel::Decibel( ) {
    //double num;
    //float dB;
-   num = 1.0;
-   dB = 0.0;
+   num = (double)1.0;
+   dB = (float)0.0;
    cout << "`````Default Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
  }
 Decibel::Decibel(double x) {
