@@ -297,7 +297,7 @@ void Matrix<T>::demo()
 template<typename T>
 void Matrix<T>::grademe()
 {
-	std::cout << "Gimme an A\n";
+	std::cout << "Matrix (Alec Iverson): Gimme an A\n";
 }
 
 template<typename T>
