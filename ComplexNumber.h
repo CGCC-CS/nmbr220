@@ -1,6 +1,6 @@
 #ifndef _COMPLEXNUMBER_
 #define _COMPLEXNUMBER_
-
+#include "numberbase.h"
 #include <iostream>
 
 /*
