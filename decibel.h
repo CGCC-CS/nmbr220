@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<cmath>
+#include<string>
 #include"numberbase.h"
 //Ian Cleary
 //CSC 220 Summer 2015
@@ -22,6 +23,8 @@ class Decibel : public NumberBase {
    Decibel(const Decibel& original);
    ~Decibel();
 
+
+   //std::string myGradeRequest;
     // Accessor/Mutator methods (getters & setters)
     double getNum() const;
     void setNum(double x);
