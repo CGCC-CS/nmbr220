@@ -7,7 +7,7 @@
 #include"currency.h"
 using namespace std;
 
-#define COUNT 2
+#define COUNT 4
 
 int main () {
   OrderedPair<int> op1(3,4);
@@ -22,7 +22,11 @@ int main () {
   nums[3] = & m1;
 
   for (int ii=0;ii<COUNT;ii++) {
+    //cout << "Printing " << ii << ": " << endl;
     nums[ii]->print();
+  }
+  for (int ii=0;ii<COUNT;ii++) {
+    //cout << "Demoing " << ii << ": " << endl;
     nums[ii]->demo();
   }
 
