@@ -6,10 +6,11 @@
 #include"decibel.h"
 #include"currency.h"
 #include "Matrices/Matrix.hpp"
+#include "ComplexNumber.h"
 
 using namespace std;
 
-#define COUNT 5
+#define COUNT 6
 
 int main () {
   OrderedPair<int> op1(3,4);
@@ -18,6 +19,7 @@ int main () {
   Currency m1(34,39);
   Matrix<float> matrix(3, 3);
   matrix.fill();
+  ComplexNumber<float> cn(2, 3);
   
   NumberBase *nums[COUNT];
 
@@ -26,6 +28,7 @@ int main () {
   nums[2] = & d1;
   nums[3] = & m1;
   nums[4] = & matrix;
+  nums[5] = & cn;
 
   for (int ii=0;ii<COUNT;ii++) {
     //cout << "Printing " << ii << ": " << endl;
