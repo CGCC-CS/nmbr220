@@ -6,23 +6,25 @@
 //CSC 220 Summer 2015
 //Project 2: Decibel Class
 
+#define DECIBEL_STRING_NAME "an A (Ian Cleary)"
+
 using namespace std;
 
-Decibel::Decibel( ) {
+Decibel::Decibel( ) : NumberBase(DECIBEL_STRING_NAME)  {
    //double num;
    //float dB;
    num = (double)1.0;
    dB = (float)0.0;
    //cout << "`````Default Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
  }
-Decibel::Decibel(double x) {
+Decibel::Decibel(double x) : NumberBase(DECIBEL_STRING_NAME)  {
    //double num;
    //float dB;
    num = x;
    dB = (float)10*log10(x);
    //cout << "`````double Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
  }
-Decibel::Decibel(float y) {
+Decibel::Decibel(float y) : NumberBase(DECIBEL_STRING_NAME) {
    //double num;
    //float dB;
    dB = y;
@@ -30,7 +32,7 @@ Decibel::Decibel(float y) {
    //cout << "`````float Decibel Constructor: num = (" << num <<"),  dB = (" << dB <<")\n";
  }
 
-Decibel::Decibel(const Decibel& original) {
+Decibel::Decibel(const Decibel& original) : NumberBase(DECIBEL_STRING_NAME)  {
    num = original.getNum();
    dB = original.getdB();
    //cout << "++COPY Constructor:" << endl;
