@@ -111,7 +111,7 @@ void Decibel::demo(void) {
  	d6 = d1 * d3;
  	cout << "Printing d6 (d4 = d1 * d3):\n"; d6.print();
  	
- 	cout << "-------------------< Ending Decibel Demo >-------------------\n";
+ 	cout << "-------------------< Ending Decibel Demo >-------------------\n\n";
   	return;
 
 }
