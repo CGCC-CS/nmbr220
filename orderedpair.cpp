@@ -7,7 +7,16 @@ template class OrderedPair<int>;
 template class OrderedPair<float>;
 template class OrderedPair<double>;
 
-// Friend methods
+// Accessors & Mutators  
+template <class T>
+const T OrderedPair<T>::getX() const  { return X; }
+template <class T>
+void OrderedPair<T>::setX(T x) { X = x; }
+template <class T>
+const T OrderedPair<T>::getY() const  { return Y; }
+template <class T>
+void OrderedPair<T>::setY(T x) { Y = x; }
+
 template <class T>
 ostream& operator<<(ostream &strm, const OrderedPair<T> &p) {
     strm << "(" << p.X << "," << p.Y << ")";
@@ -24,21 +33,6 @@ OrderedPair<T> operator* (int n, const OrderedPair<T> &p) {
 
   return res;
 }
-
-template <class T>
-void OrderedPair<T>::printOrderedPair(){
-  cout << "(" << X << "," << Y << ")" << endl;
-}
-
-// Accessors & Mutators  
-template <class T>
-const T OrderedPair<T>::getX() const  { return X; }
-template <class T>
-void OrderedPair<T>::setX(T x) { X = x; }
-template <class T>
-const T OrderedPair<T>::getY() const  { return Y; }
-template <class T>
-void OrderedPair<T>::setY(T x) { Y = x; }
 
 template <class T>
 OrderedPair<T> OrderedPair<T>::operator+(OrderedPair<T> addend) {
@@ -80,6 +74,12 @@ void OrderedPair<T>::demo(void) {
   cout << " M + N = " << m + n << endl;
   cout << " M * 2 = " << m * 2 << endl;
   cout << " 2 * N = " << 2 * n << endl;
+}
+
+// Called from print()
+template <class T>
+void OrderedPair<T>::printOrderedPair(){
+  cout << "(" << X << "," << Y << ")" << endl;
 }
 
 

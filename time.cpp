@@ -11,18 +11,32 @@ using namespace std;
 class Time
 {
    public:
+      int h,m,ap;
       int getTime(int h, int m, int ap);
-      void display(int h, int m, int ap);
+      int display();
+      int geth();
+      int getm();
+      int getap();
       Time( int h, int m, int ap);                                // primary constructor
-      Time( const Time &t1, const Time &t2, const Time &t_am);     // copy constructor
+      Time( const Time t1, const Time t2, const Time t_am);     // copy constructor
       ~Time();                                    // destructor
 
    private:
-      int *h_t;
-      int *m_t;
-      int *ap_t;
+      int h_t;
+      int m_t;
+      int ap_t;
 }
 ;
+
+int Time::geth() {
+  return h;
+}
+int Time::getm() {
+  return m;
+}
+int Time::getap() {
+  return ap;
+}
 
 // Member functions definitions including constructor
 
@@ -31,44 +45,50 @@ Time::Time(int h, int m, int ap)
         h = 12;
         m = 45;
         ap = 1;    //AM = 0; PM = 1;
-        *h_t = h;
-        *m_t = m;
-        *ap_t = ap;
-
+//        h_t = h;
+//        m_t = m;
+//        ap_t = ap;
+//        cout << h_t << endl;
+//        cout << m_t << endl;
+//        cout << ap_t << endl;
 }
 
 // Copy Constructor ----- Start -------------------------
-Time::Time(const Time &t1, const Time &t2, const Time &t3)
+Time::Time(Time t1, Time t2, Time t3)
 {
-        *h_t = *t1.h_t;
-        *m_t = *t2.m_t;
-        *ap_t = *t3.ap_t;
-        cout << *h_t << endl;
-        cout << *m_t << endl;
-        cout << *ap_t << endl;
+        //h_t = t1;
+        //m_t = t2;
+        //ap_t = t3;
+        cout << h_t << endl;
+        cout << m_t << endl;
+        cout << ap_t << endl;
 
 }
 // Copy Constructor ----- End --------------------------
 
-Time::~Time(void)
+Time::~Time()
 {
-   delete h_t;
-   delete m_t;
-   delete ap_t;
+   cout << "Deconstructor" << endl;
+   //delete h_t;
+   //delete m_t;
+   //delete ap_t;
 }
 
-Time::getTime(const int h,const int m, const int ap)
+int Time::getTime(int h,int m, int ap)
 {
-  return *h_t;
-  return *m_t;
-  return *ap_t;
- }
+  cout << "Time::getTime" << endl;
+  cout << "Hour: " << h_t << endl;
+  return h_t;
+  return m_t;
+  return ap_t;
+}
 
-void Time::display()
+int Time::display()
 {
-  cout << "Hour: " << t1.getTime() << endl;
-  cout << "Minutes: " << t2.getTime() << endl;
-  cout << "AM/PM: " << t3.getTime() << endl;
+    cout << "Time::display" << endl;
+//  cout << "Hour: " << h_t << endl;
+//  cout << "Minutes: " << m_t << endl;
+//  cout << "AM/PM: " << ap_t << endl;
 }
 
 // Main function for the program
@@ -76,10 +96,9 @@ int main( )
 {
 
   Time * time = (12,30,0);
-  time->display(12,30,0);
-
+  Time getTime (12,20,0);
+  //Time display();
+  cout << "I actually ran" << endl;
   return 0;
 
 }
-                                                                                                                                                                      89,1          Bot
-                                                                                                                           1,1           Top

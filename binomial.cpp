@@ -28,3 +28,11 @@ int Binomial::getSecondPower() const
 {
 	return Binomial::secondPower;
 }
+
+/* Not implemented yet.
+Binomial Binomial::operator+(Binomial a, Binomial b) {}
+Binomial Binomial::operator*(int a, Binomial b) {}
+
+void Binomial::print() {}
+void Binomial::demo() {}
+*/
