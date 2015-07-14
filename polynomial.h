@@ -20,6 +20,31 @@ class Polynomial{
 
 		int getOrder();
 		void print();
+		void demo();
+		//used this add method to test out my addition logic
+		void polyAdd(int);
 
+		//Override =
+		Polynomial& operator=(const Polynomial&);
+
+		// Override +
+		Polynomial operator+(int);
+		Polynomial operator+(double);
+		Polynomial operator+(const Polynomial&);
+		
+		// Override -
+		Polynomial operator-(int);
+		Polynomial operator-(double);
+		Polynomial operator-(const Polynomial&);
+
+		// Override *
+		Polynomial operator*(int);
+		Polynomial operator*(double);
+		Polynomial operator*(const Polynomial&);
+
+		// Override /
+		Polynomial operator/(int);
+		Polynomial operator/(double);
+		Polynomial operator/(const Polynomial&);
 }
 #endif

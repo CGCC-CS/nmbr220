@@ -1,3 +1,4 @@
+#include "numberbase.h"
 class Binomial
 {
 	private:
@@ -14,4 +15,11 @@ class Binomial
 		int getFirstPower() const;
 		int getSecondPower() const;
 		
+		/* Not built yet.
+		Binomial operator+(Binomial a, Binomial b);
+		Binomial operator*(int a, Binomial b);
+		
+		void print();
+		void demo();
+		*/
 };
