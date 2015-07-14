@@ -12,8 +12,8 @@ using namespace std;
 
 class Decibel : public NumberBase {
   private:
-    double* num;
-    float* dB;
+    double num;
+    float dB;
 
   public:
    Decibel();
@@ -36,8 +36,8 @@ class Decibel : public NumberBase {
     friend ostream& operator<<(ostream &strm, const Decibel &that);
     
     //pure virtual functions from numberbase.h
-    void print(void);
-    void demo(void);
+     void print(void);
+     void demo(void);
 };
 
 #endif
