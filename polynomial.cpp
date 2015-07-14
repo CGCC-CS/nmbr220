@@ -6,9 +6,11 @@ Project 2 - polynomial.cpp
 */
 
 #include<iostream>
+#include"numberbase.h"
+
 using namespace std;
 
-class Polynomial{
+class Polynomial : public NumberBase{
 
   private:
 	double *poly;
@@ -16,7 +18,7 @@ class Polynomial{
 
   public:
 	// constructor
-        Polynomial(int size = 0, double * plyIn = 0){
+        Polynomial(int size = 0, double * plyIn = 0) :						 NumberBase("Chris Ward - A") {
 	  if(size > 0){
 	  poly = new double[(size + 1)];
 	  for(int ii = 0; ii < (size + 1); ii++){
@@ -45,15 +47,33 @@ class Polynomial{
 	// getter for order
 	int getOrder();
 	void print();
+	void demo();
 	
 	void polyAdd(int);
-	 // Override +
+	// Override =
+	Polynomial& operator=(const Polynomial&);
+
+	// Override +
 	Polynomial operator+(int);
         friend Polynomial operator+(const Polynomial&);
         friend Polynomial operator+(int,const Polynomial&);
         friend Polynomial operator+(double,const Polynomial&);
-	Polynomial& operator=(const Polynomial&);
-	//be able to do with ints/doubles as well as other polynomials
+
+        // Override -
+        Polynomial operator-(int);
+        Polynomial operator-(double);
+        Polynomial operator-(const Polynomial&);
+
+        // Override *
+        Polynomial operator*(int);
+        Polynomial operator*(double);
+        Polynomial operator*(const Polynomial&);
+
+        // Override /
+        Polynomial operator/(int);
+        Polynomial operator/(double);
+        Polynomial operator/(const Polynomial&);
+
 
 };
 
@@ -107,6 +127,11 @@ void Polynomial::print(){
 	}
 	cout << endl;
 }
+
+void Polynomial::demo(){
+
+}
+
 
 //#ifdef _DEBUG_ //comment out if compiling w/ no driver
 //main for debugging purposes
