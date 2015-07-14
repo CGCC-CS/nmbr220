@@ -1,3 +1,8 @@
+/*
+	Matrix.hpp:
+	Author: Alec Iverson
+	Desc: Templated Matrix class
+*/
 #include <stdexcept>
 #include <cstdlib>
 #include <ctime>
@@ -27,6 +32,7 @@ class Matrix : public NumberBase
         
         virtual void print();
         virtual void demo();
+		virtual void grademe();
         
         // convert element type
         template<typename U>
@@ -286,6 +292,12 @@ void Matrix<T>::demo()
     
     std::cout << "matrix scale 2:\n";
     mScale2.print();
+}
+
+template<typename T>
+void Matrix<T>::grademe()
+{
+	std::cout << "Gimme an A\n";
 }
 
 template<typename T>
