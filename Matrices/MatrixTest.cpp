@@ -1,3 +1,9 @@
+/*
+	MatrixTest.cpp
+	Author: Alec Iverson
+	Desc: Tester for templated Matrix class
+*/
+
 #ifdef MATRIX_TEST
 
 #include "Matrix.hpp"
