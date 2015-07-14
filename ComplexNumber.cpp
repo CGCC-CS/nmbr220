@@ -32,16 +32,43 @@ ComplexNumber ComplexNumber::operator* (const ComplexNumber &cn)
 
 ComplexNumber ComplexNumber::operator/ (const ComplexNumber &cn)
 {
-	float r1 = sqrt(pow(this->getreal(), 2) + pow(this->getimag(), 2));
-	float theta1 = atanf(this->getimag()/this->getreal());
-	float r2 = sqrt(pow(cn.getreal(), 2) + pow(cn.getimag(), 2));
-	float theta2 =  atanf(cn.getimag()/cn.getreal());
+	float x1, y1, x2, y2, r, r1, r2, theta, theta1, theta2, a, b;
 	
-	float r = r1 / r2;
-	float theta = theta1 - theta2;
+	x1 = this->getreal();
+	y1 = this->getimag();
+	x2 = cn.getreal();
+	y2 = cn.getimag();
 	
-	float a = r*cos(theta);
-	float b = r*sin(theta);
+	r1 = sqrt(pow(x1, 2) + pow(y1, 2));
+	r2 = sqrt(pow(x2, 2) + pow(y2, 2));
+	
+	if(x1 > 0)
+	theta1 = atanf(y1/x1);
+	else if( x1 < 0 && y1 >= 0)
+	theta1 = atanf(y1/x1) + 3.14; 
+	else if(x1 < 0 && y1 < 0)
+	theta1 = atanf(y1/x1) - 3.14;
+	else if(x1 == 0 && y1 > 0)
+	theta1 = 3.14/2; 
+	else if(x1 == 0 && y1 < 0)
+	theta1 = -3.14/2; 
+	 
+	 if(x2 > 0)
+	 theta2 = atanf(y2/x2);
+	 else if(x2 < 0 && y2 >= 0)
+	 theta2 = atanf(y2/x2) + 3.14; 
+	 else if(x2 < 0 && y2 < 0)
+	 theta2 = atanf(y2/x2) - 3.14;
+	 else if(x2 == 0 && y2 > 0)
+	 theta2 = 3.14/2; 
+	 else if(x2 == 0 && y2 < 0)
+	 theta2 = -3.14/2; 
+		
+	r = r1 / r2;
+	theta = theta1 - theta2;
+	
+	a = r*cos(theta);
+	b = r*sin(theta);
 	
 	ComplexNumber ret(a, b);
 	return ret;
@@ -50,8 +77,8 @@ ComplexNumber ComplexNumber::operator/ (const ComplexNumber &cn)
 
 std::ostream& operator<< (std::ostream &strm, const ComplexNumber &cn) 
 {
-  strm << cn.getreal() << " + i" << cn.getimag();
-  return strm;
+	strm << cn.getreal() << " + i" << cn.getimag();
+	return strm;
 }
 
 
