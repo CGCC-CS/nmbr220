@@ -67,9 +67,11 @@ void Currency::demo(void)
   cout << "m1 = m2:" << endl << "m1 = " << m1 << "\tm2 = " << m2 <<endl;
 }
 
+#ifdef DEBUG
 int main()
 {
   Currency m1;
   m1.demo();
   return 0;
 }
+#endif

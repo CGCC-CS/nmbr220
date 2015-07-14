@@ -10,7 +10,9 @@ Project 2 - Polynomials - polynomial.h header file
 #include<iostream>
 class Polynomial{
 	private:
-		double *poly;
+		double *t Polynomial&,const Polynomial&);
+
+oly;
 		int order;
 
 	public:
@@ -20,6 +22,35 @@ class Polynomial{
 
 		int getOrder();
 		void print();
+		//used this add method to test out my addition logic
+		void polyAdd(int);
 
+		// Override +
+		Polynomial operator+(const Polynomial&, int);
+		Polynomial operator+(int,const Polynomial&);
+		Polynomial operator+(double,const Polynomial&);
+		Polynomial operator+(const Polynomial&, double);
+		Polynomial operator+(const Polynomial&,const Polynomial&);
+		
+		// Override -
+		Polynomial operator-(const Polynomial&, int);
+		Polynomial operator-(int,const Polynomial&);
+		Polynomial operator-(double,const Polynomial&);
+		Polynomial operator-(const Polynomial&, double);
+		Polynomial operator-(const Polynomial&,const Polynomial&);
+
+		// Override *
+		Polynomial operator*(const Polynomial&, int);
+		Polynomial operator*(int,const Polynomial&);
+		Polynomial operator*(double,const Polynomial&);
+		Polynomial operator*(const Polynomial&, double);
+		Polynomial operator*(const Polynomial&,const Polynomial&);
+
+		// Override /
+		Polynomial operator/(const Polynomial&, int);
+		Polynomial operator/(int,const Polynomial&);
+		Polynomial operator/(double,const const Polynomial&);
+		Polynomial operator/(const Polynomial&, double);
+		Polynomial operator/(const Polynomial&,const Polynomial&);
 }
 #endif

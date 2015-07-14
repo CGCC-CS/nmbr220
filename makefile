@@ -4,7 +4,7 @@ CC = g++
 
 all : project2
 
-project2 : nmbr220.o decibel.o orderedpair.o ComplexNumber.o binomial.o
+project2 : nmbr220.o decibel.o orderedpair.o ComplexNumber.o currency.o binomial.o Matrices/Matrix.hpp
 	$(CC) -o project2 nmbr220.o decibel.o orderedpair.o ComplexNumber.o currency.o binomial.o
 
 nmbr220.o : nmbr220.cpp 
