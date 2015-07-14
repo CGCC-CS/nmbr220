@@ -3,7 +3,7 @@
 #include <ctime>
 #include <iostream>
 
-#include "numberbase.h"
+#include "../numberbase.h"
 
 template<typename T>
 class Matrix : public NumberBase
@@ -31,17 +31,121 @@ class Matrix : public NumberBase
         // convert element type
         template<typename U>
         operator Matrix<U>() const;
+		
+        void fill();
         
         static bool addOrSubCompatible(const Matrix<T>& lhs, const Matrix<T>& rhs);
         static bool multiplyCompatible(const Matrix<T>& lhs, const Matrix<T>& rhs);
-        static void fillMatrix(Matrix<T>& m);
         
     private:
-        unsigned int cols;
+		unsigned int cols;
         unsigned int rows;
 
         T* data;
 };
+
+template<typename T>
+Matrix<T> operator +(const Matrix<T>& lhs, const Matrix<T>& rhs)
+{
+    if(!Matrix<T>::addOrSubCompatible(lhs, rhs))
+    {
+        throw std::logic_error("The matrices are of incompatible size.");
+    }
+    
+    const unsigned int cols = lhs.numCols();
+    const unsigned int rows = lhs.numRows();
+    
+    Matrix<T> nm(cols, rows);
+    
+    for(unsigned int i = 0; i < cols * rows; ++i)
+    {
+        unsigned int iX = i % cols;
+        unsigned int iY = i / cols;
+        nm(iX, iY) = lhs(iX, iY) + rhs(iX, iY);
+    }
+    
+    return nm;
+}
+
+template<typename T>
+Matrix<T> operator -(const Matrix<T>& lhs, const Matrix<T>& rhs)
+{
+    if(!Matrix<T>::addOrSubCompatible(lhs, rhs))
+    {
+        throw std::logic_error("The matrices are of incompatible size.");
+    }
+    
+    const unsigned int cols = lhs.numCols();
+    const unsigned int rows = lhs.numRows();
+    
+    Matrix<T> nm(cols, rows);
+    
+    for(unsigned int i = 0; i < cols * rows; ++i)
+    {
+        unsigned int iX = i % cols;
+        unsigned int iY = i / cols;
+        nm(iX, iY) = lhs(iX, iY) - rhs(iX, iY);
+    }
+    
+    return nm;
+}
+
+template<typename T>
+Matrix<T> operator *(const Matrix<T>& lhs, const Matrix<T>& rhs)
+{
+    if(!Matrix<T>::multiplyCompatible(lhs, rhs))
+    {
+        throw std::logic_error("The matrices are of incompatible size.");
+    }
+    
+    const unsigned int cols = rhs.numCols();
+    const unsigned int rows = lhs.numRows();
+    
+    Matrix<T> nm(cols, rows);
+    
+    const unsigned int sameDim = lhs.numCols();
+    
+    for(unsigned int i = 0; i < cols * rows; ++i)
+    {
+        unsigned int iX = i % cols;
+        unsigned int iY = i / cols;
+        
+        T e = 0;
+        
+        for(unsigned int n = 0; n < sameDim; ++n)
+        {
+            e += lhs(n, iY) * rhs(iX, n);
+        }
+        
+        nm(iX, iY) = e;
+    }
+    
+    return nm;
+}
+
+template<typename T>
+Matrix<T> operator *(T lhs, const Matrix<T>& rhs)
+{
+    const unsigned int cols = rhs.numCols();
+    const unsigned int rows = rhs.numRows();
+    
+    Matrix<T> nm(cols, rows);
+    
+    for(unsigned int i = 0; i < cols * rows; ++i)
+    {
+        unsigned int iX = i % cols;
+        unsigned int iY = i / cols;
+        nm(iX, iY) = rhs(iX, iY) * lhs;
+    }
+    
+    return nm;
+}
+
+template<typename T>
+Matrix<T> operator *(const Matrix<T>& lhs, T rhs)
+{
+    return rhs * lhs;
+}
 
 template<typename T>
 Matrix<T>::Matrix()
@@ -153,8 +257,8 @@ void Matrix<T>::demo()
     Matrix<int> m1(3, 3);
     Matrix<int> m2(3, 3);
     
-    fillMatrix(m1);
-    fillMatrix(m2);
+    m1.fill();
+    m2.fill();
     
     std::cout << "matrix 1:\n";
     m1.print();
@@ -201,106 +305,15 @@ Matrix<T>::operator Matrix<U>() const
 }
 
 template<typename T>
-Matrix<T> operator +(const Matrix<T>& lhs, const Matrix<T>& rhs)
+void Matrix<T>::fill()
 {
-    if(!Matrix<T>::addOrSubCompatible(lhs, rhs))
+    for(unsigned int i = 0; i < numRows(); ++i)
     {
-        throw std::logic_error("The matrices are of incompatible size.");
-    }
-    
-    const unsigned int cols = lhs.numCols();
-    const unsigned int rows = lhs.numRows();
-    
-    Matrix<T> nm(cols, rows);
-    
-    for(unsigned int i = 0; i < cols * rows; ++i)
-    {
-        unsigned int iX = i % cols;
-        unsigned int iY = i / cols;
-        nm(iX, iY) = lhs(iX, iY) + rhs(iX, iY);
-    }
-    
-    return nm;
-}
-
-template<typename T>
-Matrix<T> operator -(const Matrix<T>& lhs, const Matrix<T>& rhs)
-{
-    if(!Matrix<T>::addOrSubCompatible(lhs, rhs))
-    {
-        throw std::logic_error("The matrices are of incompatible size.");
-    }
-    
-    const unsigned int cols = lhs.numCols();
-    const unsigned int rows = lhs.numRows();
-    
-    Matrix<T> nm(cols, rows);
-    
-    for(unsigned int i = 0; i < cols * rows; ++i)
-    {
-        unsigned int iX = i % cols;
-        unsigned int iY = i / cols;
-        nm(iX, iY) = lhs(iX, iY) - rhs(iX, iY);
-    }
-    
-    return nm;
-}
-
-template<typename T>
-Matrix<T> operator *(const Matrix<T>& lhs, const Matrix<T>& rhs)
-{
-    if(!Matrix<T>::multiplyCompatible(lhs, rhs))
-    {
-        throw std::logic_error("The matrices are of incompatible size.");
-    }
-    
-    const unsigned int cols = rhs.numCols();
-    const unsigned int rows = lhs.numRows();
-    
-    Matrix<T> nm(cols, rows);
-    
-    const unsigned int sameDim = lhs.numCols();
-    
-    for(unsigned int i = 0; i < cols * rows; ++i)
-    {
-        unsigned int iX = i % cols;
-        unsigned int iY = i / cols;
-        
-        T e = 0;
-        
-        for(unsigned int n = 0; n < sameDim; ++n)
+        for(unsigned int j = 0; j < numCols(); ++j)
         {
-            e += lhs(n, iY) * rhs(iX, n);
+            (*this)(j, i) = std::rand() % 10;
         }
-        
-        nm(iX, iY) = e;
     }
-    
-    return nm;
-}
-
-template<typename T>
-Matrix<T> operator *(T lhs, const Matrix<T>& rhs)
-{
-    const unsigned int cols = rhs.numCols();
-    const unsigned int rows = rhs.numRows();
-    
-    Matrix<T> nm(cols, rows);
-    
-    for(unsigned int i = 0; i < cols * rows; ++i)
-    {
-        unsigned int iX = i % cols;
-        unsigned int iY = i / cols;
-        nm(iX, iY) = rhs(iX, iY) * lhs;
-    }
-    
-    return nm;
-}
-
-template<typename T>
-Matrix<T> operator *(const Matrix<T>& lhs, T rhs)
-{
-    return rhs * lhs;
 }
 
 template<typename T>
@@ -313,16 +326,4 @@ template<typename T>
 bool Matrix<T>::multiplyCompatible(const Matrix<T>& lhs, const Matrix<T>& rhs)
 {
     return lhs.numCols() == rhs.numRows();
-}
-
-template<typename T>
-void Matrix<T>::fillMatrix(Matrix<T>& m)
-{
-    for(unsigned int i = 0; i < m.numRows(); ++i)
-    {
-        for(unsigned int j = 0; j < m.numCols(); ++j)
-        {
-            m(j, i) = std::rand() % 10;
-        }
-    }
 }
