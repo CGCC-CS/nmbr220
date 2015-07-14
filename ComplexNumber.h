@@ -10,7 +10,7 @@ Project 2: Complex Number class
 */
 
 // ComplexNumber - base class
-class ComplexNumber
+class ComplexNumber:public NumberBase
 {
     private:
         float real;
@@ -18,7 +18,7 @@ class ComplexNumber
 
     public:
         //constructor
-        ComplexNumber(float x = 0, float y = 0)
+        ComplexNumber(float x = 0, float y = 0): NumberBase("Gene Silva fails")
         {
             real = x;
             imag = y;
@@ -54,7 +54,7 @@ class ComplexNumber
         friend std::ostream& operator<<(std::ostream &strm, const ComplexNumber &cn);
         ComplexNumber operator*(float f);
 		
-        void myPrint();
+        void print();
         void demo();
 };
 

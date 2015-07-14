@@ -87,7 +87,7 @@ ComplexNumber ComplexNumber::operator*(float f)
 	return ComplexNumber(this->getreal() * f, this->getimag() * f);
 }
 
-void ComplexNumber::myPrint()
+void ComplexNumber::print()
 {
 	if(imag<0)
 	cout << "complex number: " << real << imag << "i" << endl;	
@@ -99,17 +99,17 @@ void ComplexNumber::demo()
 {
     ComplexNumber cn1(-12, 3);
 	ComplexNumber cn2(4, 5);
-	cn1.myPrint();
-	cn2.myPrint();
+	cn1.print();
+	cn2.print();
 	ComplexNumber sum = cn1 + cn2;
 	ComplexNumber sub = cn1 - cn2;
 	ComplexNumber mult = cn1*cn2;
 	ComplexNumber div = cn1/cn2;
-	sum.myPrint();
-	sub.myPrint();
-	mult.myPrint();
-	div.myPrint();
+	sum.print();
+	sub.print();
+	mult.print();
+	div.print();
 	
 	ComplexNumber scal = cn1 * -5.3;
-	scal.myPrint();
+	scal.print();
 }
