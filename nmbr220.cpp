@@ -19,7 +19,7 @@ int main () {
   Currency m1(34,39);
   Matrix<float> matrix(3, 3);
   matrix.fill();
-  ComplexNumber<float> cn(2, 3);
+  ComplexNumber cn(2, 3);
   
   NumberBase *nums[COUNT];
 
