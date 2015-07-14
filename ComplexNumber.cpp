@@ -2,6 +2,7 @@
 #include <math.h>
 
 #include "ComplexNumber.h"
+#include <iostream>
 
 /*
 Author: Gene Silva
@@ -77,7 +78,7 @@ ComplexNumber ComplexNumber::operator/ (const ComplexNumber &cn)
 
 std::ostream& operator<< (std::ostream &strm, const ComplexNumber &cn) 
 {
-	strm << cn.getreal() << " + i" << cn.getimag();
+	strm << "complex number: " << cn.getreal() << " + " << cn.getimag() << "i" << endl;
 	return strm;
 }
 
@@ -111,5 +112,5 @@ void ComplexNumber::demo()
 	div.print();
 	
 	ComplexNumber scal = cn1 * -5.3;
-	scal.print();
+	cout << scal << endl;
 }
