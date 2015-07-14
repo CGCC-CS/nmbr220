@@ -7,7 +7,7 @@
 #include"currency.h"
 using namespace std;
 
-#define COUNT 4
+#define COUNT 2
 
 int main () {
   OrderedPair<int> op1(3,4);
@@ -23,7 +23,12 @@ int main () {
 
   for (int ii=0;ii<COUNT;ii++) {
     nums[ii]->print();
-    //nums[ii]->demo();
+    nums[ii]->demo();
+  }
+
+  cout <<" Time for final grades!" << endl;
+  for (int ii=0;ii<COUNT;ii++) {
+    nums[ii]->grademe();
   }
   return 0;
 
