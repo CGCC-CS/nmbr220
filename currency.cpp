@@ -3,7 +3,6 @@
 using namespace std;
 #include"currency.h"
 #include"math.h"
-#include"numberbase.h"
 
 Currency::Currency()
 {
@@ -20,6 +19,7 @@ Currency::Currency(const Currency &original)
   _dollar = original._dollar;
   _cents = original._cents;
 }
+Currency::~Currency() {}
 
 //getters and setters
 int Currency::getDollar() const {return _dollar;}
@@ -79,6 +79,8 @@ void Currency::demo(void)
 {
   Currency m1(20, 20);
   Currency m2(10, 10);
+
+  cout << "++++++++++++++++++++++Currency Demo by Mikaelie Odom+++++++++++" << endl;
   cout << "m1 = ";
   m1.print();
   cout << "m2 = " << m2 << endl;
@@ -88,6 +90,7 @@ void Currency::demo(void)
   cout << "m3 = " << m3 << endl << "m1 * m3 = " << m1 * m3 <<endl;
   m1 = m2;
   cout << "m1 = m2:" << endl << "m1 = " << m1 << "\tm2 = " << m2 <<endl;
+  cout << "++++++++++++++++++++++End of Currency Demo+++++++++++++++++++++" << endl;
 }
 
 void Currency::grademe(void)

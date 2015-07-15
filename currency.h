@@ -12,6 +12,7 @@ class Currency : public NumberBase
     Currency();
     Currency(int dollar, int cents);
     Currency(const Currency &original);
+    ~Currency();
 
     //getters and setters
     int getDollar() const;
