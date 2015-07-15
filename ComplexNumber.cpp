@@ -116,7 +116,7 @@ void ComplexNumber::demo()
 	mult.print();
 	cout << "Dividing the two complex numbers: ";
 	div.print();
-	cout << "Multiplying my two complex numbers by a scalar (-5.3): ";
+	cout << "Multiplying first complex number by a scalar (-5.3): ";
 	ComplexNumber scal = cn1 * -5.3;
 	cout << scal << endl;
 	cout << "----------End of Complex Number Class by Gene Silva----------" << endl;
