@@ -18,7 +18,7 @@ class ComplexNumber:public NumberBase
 
     public:
         //constructor
-        ComplexNumber(float x = 0, float y = 0): NumberBase("Gene Silva fails")
+        ComplexNumber(float x = 0, float y = 0): NumberBase("an A for Gene Silva(Complex Numbers)")
         {
             real = x;
             imag = y;

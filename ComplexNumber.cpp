@@ -78,7 +78,7 @@ ComplexNumber ComplexNumber::operator/ (const ComplexNumber &cn)
 
 std::ostream& operator<< (std::ostream &strm, const ComplexNumber &cn) 
 {
-	strm << "complex number: " << cn.getreal() << " + " << cn.getimag() << "i" << endl;
+	strm << cn.getreal() << " + " << cn.getimag() << "i" << endl;
 	return strm;
 }
 
@@ -91,13 +91,15 @@ ComplexNumber ComplexNumber::operator*(float f)
 void ComplexNumber::print()
 {
 	if(imag<0)
-	cout << "complex number: " << real << imag << "i" << endl;	
+	cout << real << imag << "i" << endl;	
 	else
-    cout << "complex number: " << real << " + " << imag << "i" << endl;
+    cout << real << " + " << imag << "i" << endl;
 }
 
 void ComplexNumber::demo()
 {
+	cout << "----------Complex Number Class by Gene Silva----------" << endl;
+    cout << "My two complex numbers:" << endl;
     ComplexNumber cn1(-12, 3);
 	ComplexNumber cn2(4, 5);
 	cn1.print();
@@ -106,11 +108,16 @@ void ComplexNumber::demo()
 	ComplexNumber sub = cn1 - cn2;
 	ComplexNumber mult = cn1*cn2;
 	ComplexNumber div = cn1/cn2;
+	cout << "Adding the two complex numbers: ";
 	sum.print();
+	cout << "Subtracting the two complex numbers: ";
 	sub.print();
+	cout << "Multiplying the two complex numbers: ";
 	mult.print();
+	cout << "Dividing the two complex numbers: ";
 	div.print();
-	
+	cout << "Multiplying my two complex numbers by a scalar (-5.3): ";
 	ComplexNumber scal = cn1 * -5.3;
 	cout << scal << endl;
+	cout << "----------End of Complex Number Class by Gene Silva----------" << endl;
 }
