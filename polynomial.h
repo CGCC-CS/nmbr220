@@ -7,8 +7,11 @@ Project 2 - Polynomials - polynomial.h header file
 
 #ifndef __POLYNOMIAL_H__
 #define __POLYNOMIAL_H__
+
+#include"numberbase.h"
 #include<iostream>
-class Polynomial{
+using namespace std;
+class Polynomial : public NumberBase{
 	private:
 		double *poly;
 		int order;
@@ -26,25 +29,29 @@ class Polynomial{
 
 		//Override =
 		Polynomial& operator=(const Polynomial&);
-
+		friend ostream& operator<<(ostream&, const Polynomial&);
 		// Override +
 		Polynomial operator+(int);
 		Polynomial operator+(double);
 		Polynomial operator+(const Polynomial&);
+		friend Polynomial operator+(int,const Polynomial&);
+        	friend Polynomial operator+(double,const Polynomial&);
+
 		
 		// Override -
 		Polynomial operator-(int);
 		Polynomial operator-(double);
 		Polynomial operator-(const Polynomial&);
-
+		friend Polynomial operator-(int,const Polynomial&);
+        	friend Polynomial operator-(double,const Polynomial&);
+		
 		// Override *
 		Polynomial operator*(int);
 		Polynomial operator*(double);
 		Polynomial operator*(const Polynomial&);
+		friend Polynomial operator*(int,const Polynomial&);
+        	friend Polynomial operator*(double,const Polynomial&);
 
-		// Override /
-		Polynomial operator/(int);
-		Polynomial operator/(double);
-		Polynomial operator/(const Polynomial&);
-}
+
+};
 #endif

@@ -7,10 +7,11 @@
 #include"currency.h"
 #include "Matrices/Matrix.hpp"
 #include "ComplexNumber.h"
+#include"polynomial.h"
 
 using namespace std;
 
-#define COUNT 6
+#define COUNT 7
 
 int main () {
   OrderedPair<int> op1(3,4);
@@ -20,6 +21,8 @@ int main () {
   Matrix<float> matrix(3, 3);
   matrix.fill();
   ComplexNumber cn(2, 3);
+  double coef[5] = {5.0,8.0,13.0,21.0,34.0};
+  Polynomial p1(4,coef);
   
   NumberBase *nums[COUNT];
 
@@ -29,6 +32,7 @@ int main () {
   nums[3] = & m1;
   nums[4] = & matrix;
   nums[5] = & cn;
+  nums[6] = & p1;
 
   for (int ii=0;ii<COUNT;ii++) {
     //cout << "Printing " << ii << ": " << endl;
