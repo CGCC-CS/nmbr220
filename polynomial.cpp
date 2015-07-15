@@ -224,7 +224,52 @@ Polynomial Polynomial::operator*(double num){
 
 // Override * for a polynomial. Polynomial Multiplication
 Polynomial Polynomial::operator*(const Polynomial& that){
-	Polynomial ret(this->getOrder(), this->poly);
+	int size = this->order + that.order;
+	int ff = 1;
+	double *np = new double[size +1];
+	for(int dd = 0; dd <= size; dd++)
+	  np[dd] = 0;
+	
+	Polynomial p1(this->getOrder(), this->poly);
+	Polynomial ret(size, np);
+	if(((p1.order - that.order) % 2) == 0){
+	  for(int ii = 0; ii <= p1.order; ii ++){
+	  	ff--;
+	  	for(int cc = 0; cc <= that.order; cc++){
+		  ret.poly[ff] = ret.poly[ff] + (p1.poly[ii] * that.poly[cc]);
+		  if(ff < size)
+		  	ff++;
+	  	}
+	  	ff--;
+	  }
+	}
+	else if(p1.order > that.order){
+	  ff--;
+	  for(int ii = 0; ii <= p1.order; ii ++){
+                
+                for(int cc = 0; cc <= that.order; cc++){
+                  ret.poly[ff] = ret.poly[ff] + (p1.poly[ii] * that.poly[cc]);
+                  if(ff < size)
+                        ff++;
+                }
+                ff--;
+          }
+	}
+
+	else if(p1.order < that.order){
+          ff--;
+          for(int ii = 0; ii <= that.order; ii ++){
+        
+                for(int cc = 0; cc <= p1.order; cc++){
+                  ret.poly[ff] = ret.poly[ff] + (that.poly[ii] * p1.poly[cc]);
+                  if(ff < size)
+                        ff++;
+                }
+                ff--;
+          }
+
+        }
+
 	return ret;
 }
 
@@ -288,8 +333,10 @@ void Polynomial::demo(){
 
 	cout << "\n\nMultiplication Demo:";
 	cout << "\n\tPoly1 * 10 = " << (poly1 * 10);
-	cout << "\n\tPoly1 * Poly2 = under construction" << endl << endl;
-
+	cout << "\n\tPoly1 * Poly2 = " << (poly1 * poly4) << endl;
+	
+	cout << "----------------------------End----------------------------";
+	cout << endl;
 }
 
 
@@ -302,7 +349,13 @@ int main(){
 	Polynomial poly2(4, APoly1);
 	Polynomial poly3(4, APoly1);
 	Polynomial poly4(2, APoly2);
-
+	
+	double p1[3] = {1.0, 2.0, 3.0};
+	double p2[3] = {2.0, 3.0, 4.0};
+	double p3[2] = {1.0, 1.0};
+	Polynomial poly5(2, p1);
+	Polynomial poly6(2, p2);
+	Polynomial poly7(1, p3);
 	//poly1.print();
 	//poly2.print();
 	//poly3.print();
@@ -366,6 +419,14 @@ int main(){
 
 	//Testing <<
 	cout << endl << poly1 << endl;
+
+	//Testing polynomial multiplication
+	cout << endl << "Poly5 and Poly6 = " << endl;
+	poly5.print();
+	poly6.print();
+	cout << "Poly5 * Poly 6" << endl;
+	cout << (poly5 * poly6) << endl;
+	cout << endl << (poly5 * poly7) << endl;
 	return 0;
 }
 
