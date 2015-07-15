@@ -9,27 +9,15 @@ class Currency : public NumberBase
     int _dollar;
     int _cents;
   public:
-    Currency()
-    {
-      _dollar = 0;
-      _cents = 0;
-    }
-    Currency(int dollar, int cents)
-    {
-      _dollar = dollar;
-      _cents = cents;
-    }
-    Currency(const Currency &original)
-    {
-      _dollar = original._dollar;
-      _cents = original._cents;
-    }
+    Currency();
+    Currency(int dollar, int cents);
+    Currency(const Currency &original);
 
     //getters and setters
-    int getDollar() const {return _dollar;};
-    void setDollar(int dollar) {_dollar = dollar;};
-    int getCents() const {return _cents;};
-    void setCents(int cents) {_cents = cents;};
+    int getDollar() const;
+    void setDollar(int dollar);
+    int getCents() const;
+    void setCents(int cents);
 
     //operator overload
     Currency operator+(const Currency &that);
@@ -38,7 +26,8 @@ class Currency : public NumberBase
     Currency operator=(const Currency &that);
 
     //inheritance
-    void print();
-    void demo(void);
+    virtual void print();
+    virtual void demo(void);
+    virtual void grademe(void);
 };
 #endif

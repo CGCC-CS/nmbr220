@@ -3,11 +3,34 @@
 using namespace std;
 #include"currency.h"
 #include"math.h"
+#include"numberbase.h"
+
+Currency::Currency()
+{
+  _dollar = 0;
+  _cents = 0;
+}
+Currency::Currency(int dollar, int cents)
+{
+  _dollar = dollar;
+  _cents = cents;
+}
+Currency::Currency(const Currency &original)
+{
+  _dollar = original._dollar;
+  _cents = original._cents;
+}
+
+//getters and setters
+int Currency::getDollar() const {return _dollar;}
+void Currency::setDollar(int dollar) {_dollar = dollar;}
+int Currency::getCents() const {return _cents;}
+void Currency::setCents(int cents) {_cents = cents;}
 
 //friend method
 ostream& operator<< (ostream &strm, const Currency &that) 
 {
-  strm << that.getDollar() << " dollars & " << that.getCents() << " cents";
+  strm << "$" << that.getDollar() + (that.getCents()/100.0);
   return strm;
 }
 
@@ -50,7 +73,7 @@ Currency Currency::operator=(const Currency &that)
 //virtual methods
 void Currency::print()
 {
-  cout<<  _dollar << " dollars & " << _cents << " cents"<<endl;
+  cout << "$" << _dollar + (_cents/100.0) << endl;
 }
 void Currency::demo(void)
 {
@@ -65,6 +88,11 @@ void Currency::demo(void)
   cout << "m3 = " << m3 << endl << "m1 * m3 = " << m1 * m3 <<endl;
   m1 = m2;
   cout << "m1 = m2:" << endl << "m1 = " << m1 << "\tm2 = " << m2 <<endl;
+}
+
+void Currency::grademe(void)
+{
+  cout << "Currency - Mikaelie Odom: Grade is an A" <<endl;
 }
 
 #ifdef DEBUG
