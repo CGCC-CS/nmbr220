@@ -4,7 +4,7 @@
 #include "numberbase.h"
 #include"orderedpair.h"
 #include"decibel.h"
-#include"currency.h"
+#include"currency.cpp"
 #include "Matrices/Matrix.hpp"
 #include "ComplexNumber.h"
 
@@ -16,7 +16,7 @@ int main () {
   OrderedPair<int> op1(3,4);
   OrderedPair<float> op2(2.0,4.5);
   Decibel d1;
-  Currency m1(34,39);
+  Currency m1;
   Matrix<float> matrix(3, 3);
   matrix.fill();
   ComplexNumber cn(2, 3);
