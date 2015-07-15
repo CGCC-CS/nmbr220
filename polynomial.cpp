@@ -11,7 +11,7 @@ Project 2 - polynomial.cpp
 using namespace std;
 
 //Constructor
-Polynomial::Polynomial(int size = 0, double * plyIn = 0) :				 NumberBase("Chris Ward - A") {
+Polynomial::Polynomial(int size = 0, double * plyIn = 0) :				 NumberBase("an A - Chris Ward (Polynomials)") {
 	if(size > 0){
 	  poly = new double[(size + 1)];
 	  for(int ii = 0; ii < (size + 1); ii++){
