@@ -30,8 +30,20 @@ int Binomial::getSecondPower() const
 }
 
 /* Not implemented yet.
-Binomial Binomial::operator+(Binomial a, Binomial b) {}
-Binomial Binomial::operator*(int a, Binomial b) {}
+Binomial Binomial::operator+(const Binomial& a, const Binomial& b) {
+	int constant = a.getConstant() + b.getConstant();
+	int firstPower = a.getConstant() + b.getConstant();
+	int secondPower = a.getConstant() + b.getConstant();
+	return Binomial(constant, firstPower, secondPower);
+}
+
+Binomial Binomial::operator*(int a, Binomial b)
+{
+	int constant = a * b.getConstant();
+	int firstPower = a * b.getConstant();
+	int secondPower = a * b.getConstant();
+	return Binomial(constant, firstPower, secondPower);
+}
 
 void Binomial::print() {}
 void Binomial::demo() {}
