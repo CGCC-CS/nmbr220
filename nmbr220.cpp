@@ -8,10 +8,11 @@
 #include "Matrices/Matrix.hpp"
 #include "ComplexNumber.h"
 #include"polynomial.h"
+//#include "time.h"
 
 using namespace std;
 
-#define COUNT 7
+#define COUNT 7 //8
 
 int main () {
   OrderedPair<int> op1(3,4);
@@ -23,7 +24,7 @@ int main () {
   ComplexNumber cn(2, 3);
   double coef[5] = {5.0,8.0,13.0,21.0,34.0};
   Polynomial p1(4,coef);
-  
+  //Time t1; 
   NumberBase *nums[COUNT];
 
   nums[0] = & op1;
@@ -33,6 +34,7 @@ int main () {
   nums[4] = & matrix;
   nums[5] = & cn;
   nums[6] = & p1;
+  //nums{7} = & t1;
 
   for (int ii=0;ii<COUNT;ii++) {
     //cout << "Printing " << ii << ": " << endl;
