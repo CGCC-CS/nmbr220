@@ -224,7 +224,8 @@ Polynomial Polynomial::operator*(double num){
 
 // Override * for a polynomial. Polynomial Multiplication
 Polynomial Polynomial::operator*(const Polynomial& that){
-
+	Polynomial ret(this->getOrder(), this->poly);
+	return ret;
 }
 
 // Override * for an int previous to a polynomial
@@ -260,11 +261,39 @@ void Polynomial::print(){
 
 // Demo the polynomial class
 void Polynomial::demo(){
+	cout << "-------------------Polynomial Demo-------------------" 
+	     << endl
+	     << "---------------------Chris Ward----------------------"
+	     << endl;
+	double APoly1[5] ={1.0,1.5,6.2,10.2,12.2};
+        double APoly2[3] = {4.2,14.4,54.0};
+        Polynomial poly1(4, APoly1);
+        Polynomial poly2(4, APoly1);
+        Polynomial poly3(4, APoly1);
+        Polynomial poly4(2, APoly2);
+
+	cout << endl;
+	cout << "Printing Demo: " << endl;
+	cout << "\tUsing << to display Poly1: \n\t\tPoly1 = " << poly1 << endl;
+	cout << "\tUsing print to display Poly2: \n\t\tPoly2 = ";
+	poly4.print();
+
+	cout << "\nAddition Demo: ";
+	cout << "\n\tPoly1 + Poly2 = " << (poly1 + poly4);
+	cout << "\n\tPoly1 + 25 = " << (poly1 + 25);
+
+	cout << "\n\nSubTraction Demo: ";
+	cout << "\n\tPoly1 - Poly2 = " << (poly1 - poly4);
+	cout << "\n\tPoly2 - 10 = " << (poly4 - 10);
+
+	cout << "\n\nMultiplication Demo:";
+	cout << "\n\tPoly1 * 10 = " << (poly1 * 10);
+	cout << "\n\tPoly1 * Poly2 = under construction" << endl << endl;
 
 }
 
 
-//#ifdef _DEBUG_ //comment out if compiling w/ no driver
+#ifdef _DEBUG_ //comment out if compiling w/ no driver
 //main for debugging purposes
 int main(){
 	double APoly1[5] ={1.0,1.5,6.2,10.2,12.2};
@@ -340,4 +369,4 @@ int main(){
 	return 0;
 }
 
-//#endif
+#endif
