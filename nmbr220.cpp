@@ -4,7 +4,7 @@
 #include "numberbase.h"
 #include"orderedpair.h"
 #include"decibel.h"
-#include"currency.cpp"
+#include"currency.h"
 #include "Matrices/Matrix.hpp"
 #include "ComplexNumber.h"
 
