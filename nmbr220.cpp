@@ -8,6 +8,7 @@
 #include "Matrices/Matrix.hpp"
 #include "ComplexNumber.h"
 #include"polynomial.h"
+#include"fraction.h"
 //#include "time.h"
 
 using namespace std;
@@ -25,6 +26,7 @@ int main () {
   double coef[5] = {5.0,8.0,13.0,21.0,34.0};
   Polynomial p1(4,coef);
   //Time t1; 
+  fraction(1,2);
   NumberBase *nums[COUNT];
 
   nums[0] = & op1;
