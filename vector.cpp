@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstdarg>
 #include<cmath>
+#include"vector.h"
 using namespace std;
 
 /*
@@ -56,49 +57,30 @@ class variableVector {
 */
 
 //myVector is a standard vector object in 3 space.
-class myVector {
-  private:
-    int i;
-    int j;
-    int k;
-    
-  public:
+
   //Parameterized Constructor
-  myVector(int x, int y, int z) {
+  myVector::myVector(int x, int y, int z) {
     i = x;
     j = y;
     k = z;
   }
   
   //Default Constructor
-  myVector() {
+  myVector::myVector() {
     new (this) myVector(0,0,0);
   }
   
   //Copy Constructor
-  myVector(const myVector& original) {
+  myVector::myVector(const myVector& original) {
     i = (original.i);
     j = (original.j);
     k = (original.k);
   }
   
   //Destructor
-  ~myVector() {
+  myVector::~myVector() {
   }
-  
-  int getI();
-  int getJ();
-  int getK();
-  void setI(int n);
-  void setJ(int n);
-  void setK(int n);
-  myVector* operator+(int n);
-  myVector* operator* (int n);
-  myVector* operator- (int n);
-  void demo();
-  void print();
-  
-};
+    
 
 //Accesor methods
 int myVector::getI() {
