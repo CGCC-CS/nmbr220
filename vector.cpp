@@ -2,6 +2,7 @@
 #include<cstdarg>
 #include<cmath>
 #include"vector.h"
+#include"numberbase.h"
 using namespace std;
 
 /*
@@ -59,7 +60,7 @@ class variableVector {
 //myVector is a standard vector object in 3 space.
 
   //Parameterized Constructor
-  myVector::myVector(int x, int y, int z) {
+  myVector::myVector(int x, int y, int z):NumberBase("Richard Rohrkemper"){
     i = x;
     j = y;
     k = z;
