@@ -29,7 +29,7 @@ polynomial.o : polynomial.cpp
 	$(CC) $(CFLAGS) -c polynomial.cpp
 
 vector.o : vector.cpp
-   $(CC) $(CFLAGS) -c vector.cpp
+	$(CC) $(CFLAGS) -c vector.cpp
 
 # make demo_op
 #   Test orderedpair class
