@@ -20,15 +20,14 @@ using namespace std;
 
 //Default Constructor
 
-Time::Time () : NumberBase ( ) {
+Time::Time () : NumberBase ( "an A! - James McAdams") {
     this->d1 = 1;
     this->h1 = 1;
     this->m1 = 1;
     this->ap1 = 1;
 }
-Time::Time (int d, int h, int m, int ap) : NumberBase ( )
+Time::Time (int d, int h, int m, int ap) : NumberBase ( "an A! - James McAdams")
   {
-    int ht1;
     d1 = d;
     h1 = h;
     m1 = m;
@@ -197,6 +196,9 @@ void Time::print()
 
 void Time::demo (void)
   {
+  
+  cout << " ===================== Time ====================" << endl;
+
   d = 4;
   h = 9;
   m = 15;
@@ -236,6 +238,8 @@ void Time::demo (void)
   cout << "This is accomplished with the overridden * operator." << endl;
   t6.print();
 
+  cout << " ===================== End ====================" << endl;
+  
   return;
 
   }
@@ -244,7 +248,7 @@ void Time::demo (void)
 
 
 // ----------------------- Main - Begin --------------------------  
-
+#ifdef DEBUG
 int main(void)
 {
   Time t1(1,1,1,1);
@@ -253,5 +257,5 @@ int main(void)
   return 0;
 }
 
-
+#endif
 // ----------------------- Main - End ----------------------------  
