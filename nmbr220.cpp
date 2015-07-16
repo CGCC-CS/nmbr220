@@ -14,7 +14,7 @@
 
 using namespace std;
 
-#define COUNT 7 //8
+#define COUNT 8 //8
 
 int main () {
   OrderedPair<int> op1(3,4);
@@ -26,7 +26,7 @@ int main () {
   ComplexNumber cn(2, 3);
   double coef[5] = {5.0,8.0,13.0,21.0,34.0};
   Polynomial p1(4,coef);
-  myVector(1,2,3);
+  myVector v1(1,2,3);
   //Time t1; 
   fraction(1,2);
   NumberBase *nums[COUNT];
@@ -38,6 +38,7 @@ int main () {
   nums[4] = & matrix;
   nums[5] = & cn;
   nums[6] = & p1;
+  nums[7] = & v1;
   //nums{7} = & t1;
 
   for (int ii=0;ii<COUNT;ii++) {
