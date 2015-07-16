@@ -10,11 +10,12 @@
 #include"polynomial.h"
 #include"fraction.h"
 #include"vector.h"
+#include"binomial.h"
 //#include "time.h"
 
 using namespace std;
 
-#define COUNT 8 //8
+#define COUNT 9 //9
 
 int main () {
   OrderedPair<int> op1(3,4);
@@ -27,6 +28,7 @@ int main () {
   double coef[5] = {5.0,8.0,13.0,21.0,34.0};
   Polynomial p1(4,coef);
   myVector v1(1,2,3);
+  Binomial b1(1, 2, 3);
   //Time t1; 
   fraction(1,2);
   NumberBase *nums[COUNT];
@@ -39,6 +41,7 @@ int main () {
   nums[5] = & cn;
   nums[6] = & p1;
   nums[7] = & v1;
+  nums[8] = & b1;
   //nums{7} = & t1;
 
   for (int ii=0;ii<COUNT;ii++) {

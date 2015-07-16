@@ -54,6 +54,7 @@ void Binomial::print()
 
 void Binomial::demo()
 {
+	std::cout << "------------Jackson Paul-------------" << std::endl;
 	int three = 3;
 	Binomial bin(6, 7, 8);
 	Binomial bin2(bin);
@@ -63,4 +64,5 @@ void Binomial::demo()
 	bin2.print();
 	bin3.print();
 	bin4.print();
+	std::cout << "------------Jackson Paul-------------" << std::endl;
 }
