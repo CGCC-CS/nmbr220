@@ -4,8 +4,8 @@ CC = g++
 
 all : project2
 
-project2 : nmbr220.o decibel.o orderedpair.o ComplexNumber.o currency.o binomial.o Matrices/Matrix.hpp polynomial.o vector.o
-	$(CC) -o project2 nmbr220.o decibel.o orderedpair.o ComplexNumber.o currency.o binomial.o polynomial.o vector.o
+project2 : nmbr220.o decibel.o orderedpair.o ComplexNumber.o currency.o binomial.o Matrices/Matrix.hpp polynomial.o vector.o time.o
+	$(CC) -o project2 nmbr220.o decibel.o orderedpair.o ComplexNumber.o currency.o binomial.o polynomial.o vector.o time.o
 
 nmbr220.o : nmbr220.cpp 
 	$(CC) $(CFLAGS) -c nmbr220.cpp
@@ -31,6 +31,8 @@ polynomial.o : polynomial.cpp
 vector.o : vector.cpp
 	$(CC) $(CFLAGS) -c vector.cpp
 
+time.o : time.cpp
+	$(CC) $(CFLAGS) -c time.cpp
 # make demo_op
 #   Test orderedpair class
 demo_op : orderedpair.cpp
