@@ -1,96 +1,212 @@
 #include "fraction.h"
-
-
-void fraction::printFraction(fraction pFraction)
+//consructor
+fraction::fraction()
 {
-	cout << numerator << "/" << denominator << endl;
+	numerator = 0;
+	denominator = 0;
 }
-
-fraction fraction::multiplyScalar(fraction mFraction, int scalar)
-{						
-	mFraction.numerator = (mFraction.numerator * scalar);
-	return mFraction; 
-}
-
-fraction fraction::multiplyFraction(fraction fraction1, fraction fraction2)
+//construct w/values
+fraction::fraction(int x, int y)
 {
-	fraction1.numerator = (fraction1.numerator * fraction2.numerator);
-	fraction1.denominator = (fraction2.denominator * fraction2.denominator);
-	return fraction1;
-
+	numerator = x;
+	denominator = y;
 }
-
-
-fraction fraction::division(fraction fraction1, fraction fraction2)
+//copy
+fraction::fraction(const fraction &original)
 {
-	fraction1.numerator = (fraction1.numerator * fraction2.denominator);
-	fraction1.denominator = (fraction1.denominator * fraction2.numerator);
-	return fraction1;
-}
+	//cout << "copying fraction" << endl;
+	numerator = original.numerator;
+	denominator = original.denominator;
 
-fraction fraction::divideScalar(fraction dFraction, int scalar)
+}
+//destructor
+fraction::~fraction(){}
+
+
+//return values
+int fraction::getNumerator() const
 {
-	dFraction.denominator = (dFraction.denominator * scalar);
-	return dFraction;
-
+	return numerator;
+}
+int fraction::getDenominator() const
+{
+	return denominator;
+}
+//set values
+void fraction::setNumerator(int nu)
+{
+	numerator = nu;
+}
+void fraction::setDenominator(int de)
+{
+	denominator = de;
 }
 
-fraction fraction::add(fraction fraction1, fraction fraction2)
+
+
+
+
+//operator overload
+
+fraction fraction::operator=(const fraction &frac)
+{
+	numerator = frac.numerator;
+	denominator = frac.denominator;
+	return *this;
+
+}
+// fraction + fraction
+fraction fraction::operator+(const fraction &frac)
 {
 	//check if denominator is the same
-	if(fraction1.denominator == fraction2.denominator)
+	if(denominator == frac.denominator)
 	{
-		//if they're the same add them
-		fraction1.numerator = (fraction1.numerator + fraction2.numerator);
-		return fraction1;
+	//if they're the same add them
+		numerator = (numerator + frac.numerator);
+		return *this;
 
 	}
-	else if(fraction1.denominator != fraction2.denominator)
+	else if(denominator != frac.denominator)
 	{
-		int de1 = fraction1.denominator;
-		int de2 = fraction2.denominator;		
-		fraction1.numerator = (fraction1.numerator * de2);
-		fraction1.denominator = (de1 * de2);
-		fraction2.numerator = (fraction2.numerator * de1);
-		fraction2.denominator = (de1 * de2);//if they're not the same make them the same
-					
-		fraction1.numerator = (fraction1.numerator + fraction2.numerator);
-		return fraction1;
+		int de1 = denominator;
+		int de2 = frac.denominator;
+		int nu2 = frac.numerator;		
+		numerator = (numerator * de2);
+		denominator = (de1 * de2);
+		//if they're not the same make them the same
+		//don't need denominator conversation of the value we're not returning
+		nu2 = (nu2 * de1);
+				
+		numerator = (numerator + nu2);
+		return *this;
 		//after conversation, add them			
 
-	}					
+	}			
 
 }
-
-fraction fraction::subtraction(fraction fraction1, fraction fraction2)
+// fraction + int
+fraction fraction::operator+(const int &num)
 {
-		//check if denominator is the same
-	if(fraction1.denominator == fraction2.denominator)
+	
+	int nu = denominator * num;
+	numerator = numerator + nu;
+	return *this;
+}
+// fraction - fraction
+fraction fraction::operator-(const fraction &frac)
+{
+	//check if denominator is the same
+	if(denominator == frac.denominator)
 	{
-		//if they're the same subtract them
-		fraction1.numerator = (fraction1.numerator - fraction2.numerator);
-		return fraction1;
+	//if they're the same add them
+		numerator = (numerator - frac.numerator);
+		return *this;
 
 	}
-	else if(fraction1.denominator != fraction2.denominator)
+	else if(denominator != frac.denominator)
 	{
-		int de1 = fraction1.denominator;
-		int de2 = fraction2.denominator;		
-		fraction1.numerator = (fraction1.numerator * de2);
-		fraction1.denominator = (de1 * de2);
-		fraction2.numerator = (fraction2.numerator * de1);
-		fraction2.denominator = (de1 * de2);//if they're not the same make them the same
-					
-		fraction1.numerator = (fraction1.numerator - fraction2.numerator);
-		return fraction1;		
-		//after conversation, subtract them			
+		int de1 = denominator;
+		int de2 = frac.denominator;
+		int nu2 = frac.numerator;		
+		numerator = (numerator * de2);
+		denominator = (de1 * de2);
+		//if they're not the same make them the same
+		//don't need denominator conversation of the value we're not returning
+		nu2 = (nu2 * de1);
+				
+		numerator = (numerator - nu2);
+		return *this;
+		//after conversation, add them			
 
-	}	
+	}			
+}
+// fraction - int
+fraction fraction::operator-(const int &num)
+{
+	
+	int nu = denominator * num;
+	numerator = numerator - nu;
+	return *this;
+}
+//fraction * fraction
+fraction fraction::operator*(const fraction &frac)
+{
+	numerator = (numerator * frac.numerator);
+	denominator = (denominator * frac.denominator);
+	return *this;
+
+
+}
+//fraction * scalar
+fraction fraction::operator*(const int &num)
+{
+	numerator = (numerator * num);
+	return *this;
+}
+// fraction / fraction
+fraction fraction::operator/(const fraction &frac)
+{
+	numerator = (numerator * frac.denominator);
+	denominator = (denominator * frac.numerator);
+	return *this;
+}
+//fraction * scalar
+fraction fraction::operator/(const int &num)
+{
+	denominator = (denominator * num);
+	return *this;
 }
 
+//print function
+void fraction::print()
+{
+	cout << this->numerator << "/" << this->denominator << endl;
+}
+
+void demo() 
+{
+	cout << " <!-------------------Fraction Demo ----------------->" << endl;
+	fraction f1 = fraction();
+	fraction f2 = fraction(1,2);
+	fraction f3 = fraction(5,6);
+	f1.print();
+	f2.print();
+	f3.print();
+	
+	fraction f4 = f2+f3;
+	f4.print();
+	
+	f2 = f2 + 1;
+	f2.print();
+
+	f2 = f2-f4;
+	f2.print();
+
+	f3 = f3-1;
+	f3.print();
+
+	fraction f5 = f3 * 2;
+	f5.print();
+	
+	fraction f6 = f5 * f2;
+	f6.print();
+
+	fraction f7 = fraction(2,4);
+	f7 = f7/2;
+	f7.print();
+
+	f1.setNumerator(1);
+	f1.setDenominator(2);
+	f7 = f7/f1;
+	f7.print();	
+	
+	cout << " /*---------------------End Demo -----------------------*/" << endl;
+}
 int main()
 {
-
-//cout << "Hello World" << endl;
+	demo();
+	//cout << "Hello World" << endl;
 
 }
+
+
