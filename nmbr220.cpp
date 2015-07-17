@@ -15,7 +15,7 @@
 
 using namespace std;
 
-#define COUNT 9
+#define COUNT 10
 
 int main () {
   OrderedPair<int> op1(3,4);
