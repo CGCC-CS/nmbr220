@@ -7,14 +7,14 @@ Binomial::Binomial(int c, int x , int x_2) : NumberBase("an A (Jackson)")
 	constant = c;
 	firstPower = x;
 	secondPower = x_2;
-};
+}
 		
 Binomial::Binomial(const Binomial& copyBinomial) : NumberBase("an A (Jackson)")
 {
 	constant = copyBinomial.getConstant();
 	firstPower = copyBinomial.getFirstPower();
 	secondPower = copyBinomial.getSecondPower();
-};
+}
 		
 int Binomial::getConstant() const
 {
