@@ -39,7 +39,7 @@ OrderedPair<T> OrderedPair<T>::operator+(OrderedPair<T> addend) {
   OrderedPair<T> res;
   T x, y;
 
-  x = this->getX() + addend.getY();
+  x = this->getX() + addend.getX();
   y = this->getY() + addend.getY();
   res.setX(x);
   res.setY(y);
